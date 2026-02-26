@@ -20,8 +20,8 @@
   </div>
 
   <div class="branding d-flex align-items-center">
-
     <div class="container position-relative d-flex align-items-center justify-content-between">
+
       <a href="{{ route('dashboard') }}" class="logo d-flex align-items-center">
         <img src="{{ asset('img/logo.webp') }}" alt="">
         <h1 class="sitename">Pet Care</h1>
@@ -35,19 +35,36 @@
               Home
             </a>
           </li>
-          <li>
-            <a href="{{ route('patients.index') }}"
-               class="{{ request()->routeIs('patients.*') ? 'active' : '' }}">
-              Pasien
-            </a>
-          </li>
 
+          @auth
+            <li>
+              <a href="{{ route('patients.index') }}"
+                 class="{{ request()->routeIs('patients.*') ? 'active' : '' }}">
+                Pasien
+              </a>
+            </li>
+
+            <li class="ms-2">
+              <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                @csrf
+                <button type="submit" class="btn btn-sm btn-danger">
+                  Logout
+                </button>
+              </form>
+            </li>
+          @else
+            <li>
+              <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+                Login
+              </a>
+            </li>
+          @endauth
         </ul>
+
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
     </div>
-
   </div>
 
 </header>
