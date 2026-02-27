@@ -7,13 +7,11 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    // tampil form login (optional, tidak dipakai modal)
     public function showLogin()
     {
         return redirect()->route('dashboard');
     }
 
-    // proses login
     public function login(Request $request)
     {
         $credentials = $request->validate([
