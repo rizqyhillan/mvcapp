@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\patient;
+use App\Models\Patient;
 use Illuminate\Http\Request;
 
 class PatientController extends Controller
 {
     public function index()
     {
-        $patients = patient::all();
+        $patients = Patient::all();
         return view('patients.index', compact('patients'));
     }
 
@@ -27,18 +27,18 @@ class PatientController extends Controller
             'address' => 'required',
         ]);
 
-        patient::create($validated);
+        Patient::create($validated);
 
         return redirect()->route('patients.index')
             ->with('success', 'Data pasien berhasil ditambahkan');
     }
 
-    public function edit(patient $patient)
+    public function edit(Patient $patient)
     {
         return view('patients.edit', compact('patient'));
     }
 
-    public function update(Request $request, patient $patient)
+    public function update(Request $request, Patient $patient)
     {
         $validated = $request->validate([
             'name' => 'required',
@@ -53,7 +53,7 @@ class PatientController extends Controller
             ->with('success', 'Data pasien berhasil diupdate');
     }
 
-    public function destroy(patient $patient)
+    public function destroy(Patient $patient)
     {
         $patient->delete();
 
