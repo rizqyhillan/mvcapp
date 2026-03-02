@@ -24,7 +24,7 @@
 
       <a href="{{ route('dashboard') }}" class="logo d-flex align-items-center">
         <img src="{{ asset('img/logo.webp') }}" alt="">
-        <h1 class="sitename">Pet Care</h1>
+        <h1 class="sitename">Clinic</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">

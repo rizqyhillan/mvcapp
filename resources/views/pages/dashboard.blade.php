@@ -7,5 +7,15 @@
 @section('content')
 
 @include('sections.hero')
+
+@include('sections.homeAbout')
+
+@include('sections.featuredDepartement')
+
+@include('sections.featuredServices')
+
+@include('sections.findADoctor')
+
+@include('sections.callToAction')
         
 @endsection

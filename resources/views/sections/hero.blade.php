@@ -25,7 +25,8 @@
               </h1>
 
               <p class="hero-description" data-aos="fade-right" data-aos-delay="400">
-                Kami menyediakan layanan perawatan dan grooming profesional untuk hewan kesayangan Anda dengan standar kebersihan dan kenyamanan terbaik. Didukung oleh tim berpengalaman, kami berkomitmen menjaga kesehatan, kebersihan, dan kebahagiaan setiap sahabat berbulu yang datang kepada kami.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
               </p>
 
               <div class="hero-stats mb-4" data-aos="fade-right" data-aos-delay="500">
