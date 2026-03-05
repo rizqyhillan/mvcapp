@@ -43,6 +43,12 @@
                 Pasien
               </a>
             </li>
+            <li>
+              <a href="{{ route('users.index') }}"
+                 class="{{ request()->routeIs('users.*') ? 'active' : '' }}">
+                Users
+              </a>
+            </li>
 
             <li class="ms-2">
               <form action="{{ route('logout') }}" method="POST" class="d-inline">

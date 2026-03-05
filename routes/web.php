@@ -1,8 +1,10 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('pages.dashboard');
@@ -11,6 +13,8 @@ Route::get('/', function () {
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.process');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('patients', PatientController::class);
@@ -79,3 +83,5 @@ Route::get('/404', function () {
 Route::get('/departementDetails', function () {
     return view('pages.departementDetails');
 })->name('departementDetails');
+
+
