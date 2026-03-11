@@ -36,7 +36,7 @@
                     <input type="text" name="address" class="form-control" value="{{ old('address') }}">
                 </div>
 
-                <button class="btn btn-success">Simpan</button>
+                <button class="btn btn-success" onclick="return confirm ('Apakah anda sudah yakin untuk menyimpan?')">Simpan</button>
                 <a href="{{ route('patients.index') }}" class="btn btn-secondary">Batal</a>
             </form>
 

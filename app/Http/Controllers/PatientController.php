@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Patient;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class PatientController extends Controller
 {
     public function index()
     {
-        $patients = DB::table('patients')->get();
+        $patients = Patient::all();
         return view('patients.index', compact('patients'));
     }
 
@@ -27,19 +27,18 @@ class PatientController extends Controller
             'address' => 'required',
         ]);
 
-        DB::table('patients')->insert($validated);
+        Patient::create($validated);
 
         return redirect()->route('patients.index')
             ->with('success', 'Data pasien berhasil ditambahkan');
     }
 
-    public function edit($id)
+    public function edit(Patient $patient)
     {
-        $patient = DB::table('patients')->where('id', $id->id)->first();
         return view('patients.edit', compact('patient'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Patient $patient)
     {
         $validated = $request->validate([
             'name' => 'required',
@@ -48,15 +47,15 @@ class PatientController extends Controller
             'address' => 'required',
         ]);
 
-        DB::table('patients')->where('id', $id)->update($validated);
+        $patient->update($validated);
 
         return redirect()->route('patients.index')
             ->with('success', 'Data pasien berhasil diupdate');
     }
 
-    public function destroy($id)
+    public function destroy(Patient $patient)
     {
-        DB::table('patients')->where('id', $id)->delete();
+        $patient->delete();
 
         return redirect()->route('patients.index')
             ->with('success', 'Data pasien berhasil dihapus');
