@@ -42,7 +42,7 @@
                         class="form-control">
                 </div>
 
-                <button class="btn btn-success">Update</button>
+                <button class="btn btn-success" onclick="return confirm ('Apakah anda sudah yakin untuk mengupdate?')">Update</button>
                 <a href="{{ route('patients.index') }}" class="btn btn-secondary">Batal</a>
             </form>
 
